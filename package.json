@@ -1,0 +1,351 @@
+{
+  "name": "zovo-auto-rename-tag",
+  "displayName": "Auto Rename Tag & Auto Close Tag (Highlight Matching Tag, JSX, Vue)",
+  "description": "Auto rename tag and auto close tag as you type in HTML, JSX/TSX, Vue, Svelte, PHP, Blade, Twig, XML and Markdown. One undo step for both tags, never pairs <br> or TypeScript generics, highlights the matching tag. Free, no sign-in, works offline.",
+  "version": "0.1.0",
+  "publisher": "zovo",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1B2430",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "auto rename tag",
+    "rename tag",
+    "auto close tag",
+    "close tag",
+    "highlight matching tag",
+    "matching tag",
+    "auto complete tag",
+    "linked editing",
+    "jsx",
+    "tsx",
+    "react",
+    "vue",
+    "svelte",
+    "html",
+    "xml",
+    "php",
+    "blade",
+    "twig",
+    "offline"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:vue",
+    "onLanguage:svelte",
+    "onLanguage:astro",
+    "onLanguage:php",
+    "onLanguage:blade",
+    "onLanguage:twig",
+    "onLanguage:jinja",
+    "onLanguage:jinja-html",
+    "onLanguage:django-html",
+    "onLanguage:nunjucks",
+    "onLanguage:liquid",
+    "onLanguage:handlebars",
+    "onLanguage:erb",
+    "onLanguage:ejs",
+    "onLanguage:markdown",
+    "onLanguage:mdx",
+    "onLanguage:xml",
+    "onLanguage:xsl",
+    "onLanguage:svg",
+    "onLanguage:xaml",
+    "onLanguage:javascriptreact",
+    "onLanguage:javascript",
+    "onLanguage:typescriptreact"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "zovoTags.goToMatchingTag",
+        "title": "Go to Matching Tag",
+        "category": "Auto Rename Tag"
+      },
+      {
+        "command": "zovoTags.selectTagContent",
+        "title": "Select Tag Content",
+        "category": "Auto Rename Tag"
+      },
+      {
+        "command": "zovoTags.renameTagPair",
+        "title": "Rename Tag Pair…",
+        "category": "Auto Rename Tag"
+      },
+      {
+        "command": "zovoTags.toggleLanguage",
+        "title": "Turn On or Off for This Language",
+        "category": "Auto Rename Tag"
+      },
+      {
+        "command": "zovoTags.turnOnLinkedEditing",
+        "title": "Turn On Rename as You Type for This Language",
+        "category": "Auto Rename Tag"
+      },
+      {
+        "command": "zovoTags.menu",
+        "title": "Show Menu",
+        "category": "Auto Rename Tag"
+      },
+      {
+        "command": "zovoTags.openPractice",
+        "title": "Open a Practice File",
+        "category": "Auto Rename Tag"
+      },
+      {
+        "command": "zovoTags.openWalkthrough",
+        "title": "Get Started",
+        "category": "Auto Rename Tag"
+      },
+      {
+        "command": "zovoTags.supportDeveloper",
+        "title": "Support the developer",
+        "category": "Auto Rename Tag"
+      },
+      {
+        "command": "zovoTags.moreViewers",
+        "title": "More free tools",
+        "category": "Auto Rename Tag"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "zovoTags.goToMatchingTag",
+          "when": "editorLangId in zovoTags.languages",
+          "group": "1_modification@90"
+        },
+        {
+          "command": "zovoTags.selectTagContent",
+          "when": "editorLangId in zovoTags.languages",
+          "group": "1_modification@91"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "zovoTags.menu",
+          "when": "false"
+        },
+        {
+          "command": "zovoTags.turnOnLinkedEditing",
+          "when": "editorIsOpen"
+        }
+      ]
+    },
+    "configurationDefaults": {
+      "[html]": {
+        "editor.linkedEditing": true
+      },
+      "[vue]": {
+        "editor.linkedEditing": true
+      },
+      "[svelte]": {
+        "editor.linkedEditing": true
+      },
+      "[astro]": {
+        "editor.linkedEditing": true
+      },
+      "[php]": {
+        "editor.linkedEditing": true
+      },
+      "[blade]": {
+        "editor.linkedEditing": true
+      },
+      "[twig]": {
+        "editor.linkedEditing": true
+      },
+      "[jinja]": {
+        "editor.linkedEditing": true
+      },
+      "[jinja-html]": {
+        "editor.linkedEditing": true
+      },
+      "[django-html]": {
+        "editor.linkedEditing": true
+      },
+      "[nunjucks]": {
+        "editor.linkedEditing": true
+      },
+      "[liquid]": {
+        "editor.linkedEditing": true
+      },
+      "[handlebars]": {
+        "editor.linkedEditing": true
+      },
+      "[erb]": {
+        "editor.linkedEditing": true
+      },
+      "[ejs]": {
+        "editor.linkedEditing": true
+      },
+      "[markdown]": {
+        "editor.linkedEditing": true
+      },
+      "[mdx]": {
+        "editor.linkedEditing": true
+      },
+      "[xml]": {
+        "editor.linkedEditing": true
+      },
+      "[xsl]": {
+        "editor.linkedEditing": true
+      },
+      "[svg]": {
+        "editor.linkedEditing": true
+      },
+      "[xaml]": {
+        "editor.linkedEditing": true
+      },
+      "[javascriptreact]": {
+        "editor.linkedEditing": true
+      },
+      "[javascript]": {
+        "editor.linkedEditing": true
+      },
+      "[typescriptreact]": {
+        "editor.linkedEditing": true
+      },
+      "html.autoClosingTags": false
+    },
+    "configuration": {
+      "title": "Auto Rename Tag",
+      "properties": {
+        "zovoTags.renameOnType": {
+          "type": "boolean",
+          "default": true,
+          "description": "Rename the matching tag as you type a tag name. It uses VS Code's linked editing, so your edit and the matching tag undo together in one step. This extension turns `editor.linkedEditing` on for its languages; if you turned that setting off yourself, the status bar offers to turn it on."
+        },
+        "zovoTags.closeOnType": {
+          "type": "boolean",
+          "default": true,
+          "description": "Insert the closing tag when you type \">\" or \"</\", in the same undo step as your typing. In HTML this extension does the closing (it sets VS Code's html.autoClosingTags to false by default, so tags are never closed twice). In JSX/TSX, TypeScript closes tags, and with the Vue, Svelte, Astro or Red Hat XML extension that extension does, so this one stays out of the way there."
+        },
+        "zovoTags.highlightMatchingTag": {
+          "type": "boolean",
+          "default": true,
+          "description": "Draw a box around the matching tag when the cursor is on a tag, in the theme's bracket match colors."
+        },
+        "zovoTags.disabledLanguages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Language ids where this extension does nothing, for example [\"markdown\", \"php\"]."
+        },
+        "zovoTags.additionalHtmlLanguages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "More language ids to treat as HTML, for example a template language from another extension."
+        },
+        "zovoTags.maxFileSizeKB": {
+          "type": "number",
+          "default": 1024,
+          "minimum": 64,
+          "maximum": 20480,
+          "description": "In larger files (KB), rename, close and highlight as you type are off, so typing never waits. The status bar says so. The commands still work."
+        },
+        "zovoTags.maxFileLines": {
+          "type": "number",
+          "default": 50000,
+          "minimum": 1000,
+          "maximum": 1000000,
+          "description": "In files with more lines than this, rename, close and highlight as you type are off."
+        },
+        "zovoTags.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the small \"Tags\" item in the status bar for files with tags."
+        },
+        "zovoTags.askForRating": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ask for a Marketplace rating after you have used Auto Rename Tag in two sessions. You can answer \"Later\" or \"No thanks\". Nothing is sent anywhere."
+        },
+        "zovoTags.showSupportLinks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Rate, More free tools and Sponsor links in the status bar tooltip and menu. Nothing is sent anywhere."
+        }
+      }
+    },
+    "walkthroughs": [
+      {
+        "id": "zovoTags.start",
+        "title": "Get started with Auto Rename Tag",
+        "description": "Rename and close tags as you type in HTML, JSX, Vue, Svelte, PHP, XML and more. One undo step, no account, no network.",
+        "steps": [
+          {
+            "id": "rename",
+            "title": "Rename a tag",
+            "description": "Put the cursor in a tag name and type. The matching tag changes with it, and one undo brings both back.\n[Open a practice file](command:zovoTags.openPractice)",
+            "media": {
+              "markdown": "walkthrough/rename.md"
+            },
+            "completionEvents": [
+              "onCommand:zovoTags.openPractice"
+            ]
+          },
+          {
+            "id": "close",
+            "title": "Close tags as you type",
+            "description": "Type \">\" after a tag name and the closing tag appears after the cursor. Type \"</\" and the open tag's name is filled in. Void tags like <br> and TypeScript generics are never closed.",
+            "media": {
+              "markdown": "walkthrough/close.md"
+            }
+          },
+          {
+            "id": "match",
+            "title": "See and jump to the matching tag",
+            "description": "With the cursor on a tag, its partner gets a box. Run Go to Matching Tag or Select Tag Content from the right-click menu.\n[Go to Matching Tag](command:zovoTags.goToMatchingTag)",
+            "media": {
+              "markdown": "walkthrough/match.md"
+            },
+            "completionEvents": [
+              "onCommand:zovoTags.goToMatchingTag",
+              "onCommand:zovoTags.selectTagContent"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "package": "npx -y @vscode/vsce package --no-dependencies -o dist/"
+  },
+  "homepage": "https://github.com/theluckystrike/auto-rename-tag-vscode#readme",
+  "bugs": {
+    "url": "https://github.com/theluckystrike/auto-rename-tag-vscode/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/auto-rename-tag-vscode"
+  },
+  "devDependencies": {
+    "@types/vscode": "~1.90.0"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/theluckystrike"
+  }
+}

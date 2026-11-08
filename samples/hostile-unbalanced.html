@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hostile page: a <b> in the title is text</title>
+  <style>
+    /* </div> inside CSS is not a tag */
+    .card > .body::after { content: "<span>"; }
+  </style>
+  <script>
+    // "</div>" in a string must not close anything
+    const html = "<div class='x'>" + '</div>';
+    if (a < b && c > d) { console.log("<p>"); }
+    const re = /<\/?section>/g;
+  </script>
+</head>
+<body>
+  <!-- <section> commented out </section> <div> -->
+  <div id="outer">
+    <p>First paragraph, no end tag
+    <p>Second paragraph<br>with a line break<br/>and <img src="a.png" alt="1 > 0">
+    <section data-x="a > b" title='<nav>'>
+      <ul>
+        <li>one
+        <li>two</li>
+      </ul>
+    </section>
+    </span>
+    <input type="text" value="</div>">
+    <textarea><div>raw text, not a tag</div></textarea>
+  </div>
+  <div class="unclosed">
+    <article>
+      <h2>Missing closing tags below</h2>
+  <![CDATA[ <div> in CDATA ]]>
+  <footer>Footer</footer>
+</body>
+</html>
