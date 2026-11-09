@@ -12,7 +12,9 @@ test('every word of each target phrase is in the display name', () => {
   for (const phrase of ['auto rename tag', 'rename tag', 'auto close tag', 'close tag', 'highlight matching tag', 'jsx', 'vue']) {
     for (const w of phrase.split(' ')) assert.ok(name.includes(w), `${w} (${phrase})`);
   }
-  assert.ok(pkg.displayName.startsWith('Auto Rename Tag'));
+  assert.ok(pkg.displayName.startsWith('Tag Auto Rename'));
+  // NAME GUARD: no rival product name as a run of words.
+  for (const rival of ['auto rename tag', 'auto close tag', 'highlight matching tag', 'auto complete tag']) assert.ok(!name.includes(rival), rival);
 });
 
 test('engine floor from OVX1 and matching @types/vscode', () => {

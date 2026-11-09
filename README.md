@@ -1,21 +1,21 @@
-# Auto Rename Tag & Auto Close Tag (Highlight Matching Tag, JSX, Vue)
+# Tag Auto Rename & Close Tag Sync (Matching Tag Highlight, JSX, Vue)
 
 Rename a tag and its matching tag changes as you type. Type `>` and the closing tag is there. One undo brings everything back. Works in HTML, JSX and TSX, Vue, Svelte, Astro, PHP, Blade, Twig, Jinja, ERB, Handlebars, XML, SVG and Markdown. Free, no sign-in, works offline.
 
 ![Renaming section to section-card in a Vue file: the closing tag changes with it and both tags have a box](images/readme-hero-dark.png)
 
-## What it fixes
+## Why this one
 
-The well-known tag extensions have open reviews about the same few problems. This one is built around them:
+The most installed tag rename, tag close and matching tag extensions have public reviews about the same few problems (links below; quotes are from those pages). This one is a different extension, built around them:
 
 | Problem people report | What this extension does |
 |---|---|
-| "This will destroy your undo stack", "can corrupt your UNDO stack" | Rename uses VS Code's own linked editing, so your edit and the matching tag are one undo step. The closing tag joins the same undo step as the `>` you typed (HTML, Vue, Svelte, PHP, Blade, Twig, XML, Markdown and the rest). |
-| `<br>` turned into `<br></br>`, `Observable<boolean>` turned into `Observable<boolean></boolean>` | Void tags (`br`, `img`, `input`, `meta`, `hr` and the rest) never pair and are never closed. `.ts` files are left alone, and in `.tsx` only real JSX is a tag: comparisons like `a < b && c > d`, generics like `useState<string>()` or `<T,>` are not. |
-| "Doesn't work in JSX", "not working well in mixed PHP and Twig", "doesn't work in a newly created document" | One scanner for HTML, JSX/TSX, Vue, Svelte, Astro, PHP, Blade, Twig/Jinja/Nunjucks/Liquid, ERB/EJS, Handlebars, XML, SVG and Markdown. It skips comments, strings, `<script>` and `<style>` bodies, `{{ }}`, `{% %}`, `<?php ?>` and `<% %>` blocks. New unsaved files work as soon as they have a language. |
-| "You won't see what is auto renamed" | The matching tag gets a box in your theme's bracket colors whenever the cursor is on a tag. |
-| "The lag between typing `</` and the tag being closed is too big", "VSCode hangs" | Closing runs right in the typing event: about 6 ms on a 10,000-line, 700 KB file. Files over 1 MB or 50,000 lines get no live rename or close, and the status bar says so, so typing never waits. |
-| Pop-ups and course adverts | No ads, no tips, no notifications. The only question it ever asks is for a rating, after you have used it in two sessions, and you can turn that off. |
+| "This will destroy your undo stack", "can corrupt your UNDO stack" ([reviews](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag&ssr=false#review-details), [issue 55](https://github.com/formulahendry/vscode-auto-rename-tag/issues/55)) | Rename uses VS Code's own linked editing, so your edit and the matching tag are one undo step. The closing tag joins the same undo step as the `>` you typed (HTML, Vue, Svelte, PHP, Blade, Twig, XML, Markdown and the rest). |
+| `<br>` turned into `<br></br>`, `Observable<boolean>` turned into `Observable<boolean></boolean>` ([rename reviews](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag&ssr=false#review-details), [close reviews](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag&ssr=false#review-details)) | Void tags (`br`, `img`, `input`, `meta`, `hr` and the rest) never pair and are never closed. `.ts` files are left alone, and in `.tsx` only real JSX is a tag: comparisons like `a < b && c > d`, generics like `useState<string>()` or `<T,>` are not. |
+| "Doesn't work in JSX", "not working well in mixed PHP and Twig", "doesn't work in a newly created document" ([close reviews](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag&ssr=false#review-details), [rename reviews](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag&ssr=false#review-details)) | One scanner for HTML, JSX/TSX, Vue, Svelte, Astro, PHP, Blade, Twig/Jinja/Nunjucks/Liquid, ERB/EJS, Handlebars, XML, SVG and Markdown. It skips comments, strings, `<script>` and `<style>` bodies, `{{ }}`, `{% %}`, `<?php ?>` and `<% %>` blocks. New unsaved files work as soon as they have a language. |
+| "You won't see what is auto renamed" ([reviews](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag&ssr=false#review-details)) | The matching tag gets a box in your theme's bracket colors whenever the cursor is on a tag. |
+| "The lag between typing `</` and the tag being closed is too big", "VSCode hangs" ([reviews](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag&ssr=false#review-details)) | Closing runs right in the typing event: about 6 ms on a 10,000-line, 700 KB file. Files over 1 MB or 50,000 lines get no live rename or close, and the status bar says so, so typing never waits. |
+| Pop-ups and course adverts ([reviews](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag&ssr=false#review-details)) | No ads, no tips, no notifications. The only question it ever asks is for a rating, after you have used it in two sessions, and you can turn that off. |
 
 ## Features
 
@@ -64,6 +64,7 @@ No network requests, no telemetry, no account. The extension reads only the open
 Zovo extensions are free, with no ads and no tracking. They are made by [theluckystrike](https://github.com/theluckystrike) on GitHub. If this one saves you time, you can support the work:
 
 - [Sponsor on GitHub](https://github.com/sponsors/theluckystrike)
+- [PayPal](https://www.paypal.com/paypalme/najzzz)
 - [Follow theluckystrike on GitHub](https://github.com/theluckystrike)
 
 ## More tools by Zovo

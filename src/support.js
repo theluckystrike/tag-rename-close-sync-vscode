@@ -9,7 +9,7 @@
 // A link shows only when its value is set. Never add a URL here that is not in funding.json.
 const FUNDING = {
   "github_sponsors": "https://github.com/sponsors/theluckystrike",
-  "paypal_me": "",
+  "paypal_me": "https://www.paypal.com/paypalme/najzzz",
   "buy_me_a_coffee": ""
 };
 
@@ -218,7 +218,7 @@ const QUEUED = [
   ],
   [
     "zovo.zovo-auto-rename-tag",
-    "Auto Rename Tag & Auto Close Tag (Highlight Matching Tag, JSX, Vue)",
+    "Tag Auto Rename & Close Tag Sync (Matching Tag Highlight, JSX, Vue)",
     "auto rename tag and auto close tag as you type in HTML, JSX/TSX, Vue, Svelte, PHP, Blade, Twig, XML and Markdown. One undo step for both tags, never pairs <br> or TypeScript generics, highlights the matching tag. Free, no sign-in, works offline.",
     "https://github.com/theluckystrike/auto-rename-tag-vscode"
   ],

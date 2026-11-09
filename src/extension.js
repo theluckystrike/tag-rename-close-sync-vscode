@@ -1,5 +1,5 @@
 'use strict';
-// Auto Rename Tag & Auto Close Tag by Zovo.
+// Tag Auto Rename & Close Tag Sync by Zovo.
 // - Rename: a LinkedEditingRangeProvider, so VS Code's own linked editing mirrors the edit in the same undo step.
 //   The extension turns editor.linkedEditing on for its languages (configurationDefaults in package.json).
 // - Close: on ">" and "</" it inserts the closing tag with one snippet edit that joins the typing undo step.
@@ -13,7 +13,7 @@ const { registerSupport, footerMarkdown } = require('./support');
 
 const EXT_ID = 'zovo.zovo-auto-rename-tag';
 const SECTION = 'zovoTags';
-const NAME = 'Auto Rename Tag';
+const NAME = 'Tag Sync';
 const WORD = /[^\s<>/="'`{}]+/;
 
 let rating = { success() {}, failure() {} };

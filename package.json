@@ -1,6 +1,6 @@
 {
   "name": "zovo-auto-rename-tag",
-  "displayName": "Auto Rename Tag & Auto Close Tag (Highlight Matching Tag, JSX, Vue)",
+  "displayName": "Tag Auto Rename & Close Tag Sync (Matching Tag Highlight, JSX, Vue)",
   "description": "Auto rename tag and auto close tag as you type in HTML, JSX/TSX, Vue, Svelte, PHP, Blade, Twig, XML and Markdown. One undo step for both tags, never pairs <br> or TypeScript generics, highlights the matching tag. Free, no sign-in, works offline.",
   "version": "0.1.0",
   "publisher": "zovo",
@@ -77,52 +77,52 @@
       {
         "command": "zovoTags.goToMatchingTag",
         "title": "Go to Matching Tag",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       },
       {
         "command": "zovoTags.selectTagContent",
         "title": "Select Tag Content",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       },
       {
         "command": "zovoTags.renameTagPair",
         "title": "Rename Tag Pair…",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       },
       {
         "command": "zovoTags.toggleLanguage",
         "title": "Turn On or Off for This Language",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       },
       {
         "command": "zovoTags.turnOnLinkedEditing",
         "title": "Turn On Rename as You Type for This Language",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       },
       {
         "command": "zovoTags.menu",
         "title": "Show Menu",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       },
       {
         "command": "zovoTags.openPractice",
         "title": "Open a Practice File",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       },
       {
         "command": "zovoTags.openWalkthrough",
         "title": "Get Started",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       },
       {
         "command": "zovoTags.supportDeveloper",
         "title": "Support the developer",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       },
       {
         "command": "zovoTags.moreViewers",
         "title": "More free tools",
-        "category": "Auto Rename Tag"
+        "category": "Tag Sync"
       }
     ],
     "menus": {
@@ -225,7 +225,7 @@
       "html.autoClosingTags": false
     },
     "configuration": {
-      "title": "Auto Rename Tag",
+      "title": "Tag Sync (Zovo)",
       "properties": {
         "zovoTags.renameOnType": {
           "type": "boolean",
@@ -280,7 +280,7 @@
         "zovoTags.askForRating": {
           "type": "boolean",
           "default": true,
-          "description": "Ask for a Marketplace rating after you have used Auto Rename Tag in two sessions. You can answer \"Later\" or \"No thanks\". Nothing is sent anywhere."
+          "description": "Ask for a Marketplace rating after you have used Tag Sync in two sessions. You can answer \"Later\" or \"No thanks\". Nothing is sent anywhere."
         },
         "zovoTags.showSupportLinks": {
           "type": "boolean",
@@ -292,7 +292,7 @@
     "walkthroughs": [
       {
         "id": "zovoTags.start",
-        "title": "Get started with Auto Rename Tag",
+        "title": "Get started with Tag Sync",
         "description": "Rename and close tags as you type in HTML, JSX, Vue, Svelte, PHP, XML and more. One undo step, no account, no network.",
         "steps": [
           {

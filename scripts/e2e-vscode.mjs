@@ -300,20 +300,20 @@ await step('highlight the matching tag; Go to Matching Tag; Select Tag Content',
   const on = await deco();
   await shot('vue-highlight');
   must(on >= 2 && on > before, `highlight boxes: before ${before}, on tag ${on}`);
-  await vs.command('Auto Rename Tag: Go to Matching Tag');
+  await vs.command('Tag Sync: Go to Matching Tag');
   await sleep(500);
   const c1 = await cursor();
   must(c1.startsWith('Ln 16, Col 7'), 'go to matching: ' + c1);
-  await vs.command('Auto Rename Tag: Go to Matching Tag');
+  await vs.command('Tag Sync: Go to Matching Tag');
   await sleep(500);
   const c2 = await cursor();
   must(c2.startsWith('Ln 12, Col 6'), 'and back: ' + c2);
   await goTo(18, 12); // inside <h1>Get started</h1>
-  await vs.command('Auto Rename Tag: Select Tag Content');
+  await vs.command('Tag Sync: Select Tag Content');
   await sleep(500);
   const s1 = await cursor();
   must(/\(11 selected\)/.test(s1), 'select content: ' + s1);
-  await vs.command('Auto Rename Tag: Select Tag Content');
+  await vs.command('Tag Sync: Select Tag Content');
   await sleep(500);
   const s2 = await cursor();
   must(/\(20 selected\)/.test(s2), 'select element: ' + s2);
@@ -329,7 +329,7 @@ await step('Rename Tag Pair command: one edit, one undo', async () => {
   await openFile(file);
   const [l, col] = lineCol(text, o + 2);
   await goTo(l, col);
-  await vs.command('Auto Rename Tag: Rename Tag Pair');
+  await vs.command('Tag Sync: Rename Tag Pair');
   await sleep(600);
   await vs.key('a', 'KeyA', CMD, 65);
   await vs.type('my-form');
