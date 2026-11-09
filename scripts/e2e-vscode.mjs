@@ -73,7 +73,13 @@ async function goTo(line, col) {
   await vs.key('Enter', 'Enter');
   await sleep(300);
   const want = `Ln ${line}, Col ${col}`;
-  const c = await vs.waitFor(async () => { const t = await cursor(); return t.startsWith(want) ? t : null; }, 3000, 100);
+  let c = await vs.waitFor(async () => { const t = await cursor(); return t.startsWith(want) ? t : null; }, 3000, 100);
+  if (!c) { // FIN1: on a busy machine the Go to Line box can open after the keys were sent; try once more
+    await vs.key('Escape', 'Escape'); await focusEditor(); await vs.command('Go to Line/Column');
+    await vs.waitFor(() => vs.wbEval(`(() => { const w = document.querySelector('.quick-input-widget'); return !!(w && w.style.display !== 'none' && w.offsetParent !== null); })()`), 4000, 100);
+    await vs.type(`${line}:${col}`); await sleep(400); await vs.key('Enter', 'Enter'); await sleep(300);
+    c = await vs.waitFor(async () => { const t = await cursor(); return t.startsWith(want) ? t : null; }, 3000, 100);
+  }
   must(c, `cursor not at ${want}: ${await cursor()}`);
   await sleep(900); // linked editing asks for ranges after the cursor settles
 }
@@ -104,7 +110,7 @@ const RENAMES = [
   ['whoops-frame-list.html.php', '<div class="frame-file">', 15, 1],
   ['welcome.blade.php', '<nav class="flex items-center', 49, 1],
   ['base.html.twig', '<nav class="navbar', 95, 1],
-  ['item_plant_description.xml', '<layout ', 28, 1],
+  ['item_plant_description.xml', '<layout ', 27, 1], // FIN1: </layout> is on line 27 of the 27-line file
   ['vite.svg', '<mask ', 1, 1],
   ['vite-README.md', '<p align="center">', 13, 1],
   ['mdn-website-structure.html', '<nav>', 35, 1],
@@ -156,7 +162,7 @@ const CLOSES = [
   ['welcome.blade.php', 55, '</em>', 'this extension (blade)'],
   ['base.html.twig', 126, '</em>', 'this extension (twig)'],
   ['item_plant_description.xml', 19, '</em>', 'this extension (xml)'],
-  ['vite-README.md', 27, '</em>', 'this extension (markdown)'],
+  ['vite-README.md', 25, '</em>', 'this extension (markdown)'], // FIN1: line 27 has an emoji (2 UTF-16 units, 1 column in VS Code)
   ['mdn-website-structure.html', 18, '</em>', 'this extension (html)'],
   ['App.tsx', 14, '</em>', "VS Code's TypeScript support"],
 ];
@@ -257,6 +263,7 @@ await step('new unsaved PHP file: ">" and "</" close tags', async () => {
   await vs.key('n', 'KeyN', CMD, 78);
   await sleep(800);
   await vs.command('Change Language Mode');
+  await vs.waitFor(() => vs.wbEval(`(() => { const w = document.querySelector('.quick-input-widget'); return !!(w && w.style.display !== 'none' && w.offsetParent !== null); })()`), 4000, 100); // FIN1: wait for the picker
   await sleep(400);
   await vs.type('PHP');
   await sleep(700);

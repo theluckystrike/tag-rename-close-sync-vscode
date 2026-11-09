@@ -112,6 +112,15 @@ function snippetText(s) {
   return s.replace(/[\\$}]/g, (m) => '\\' + m);
 }
 
+/**
+ * A typed ">" or "/" that can close a tag: a plain insert, or VS Code typing over the ">" it added itself
+ * (languages such as Markdown pair "<" with ">", so the ">" key replaces that one character).
+ */
+function isCloseTrigger(ch) {
+  if (ch.rangeLength === 0) return ch.text === '>' || ch.text === '/';
+  return ch.rangeLength === 1 && ch.text === '>' && ch.range.start.line === ch.range.end.line;
+}
+
 function onChange(e) {
   const doc = e.document;
   if (e.contentChanges.length === 0) return;
@@ -123,7 +132,7 @@ function onChange(e) {
   }
   if (e.reason || e.contentChanges.length !== 1) return; // undo, redo, multi-cursor
   const ch = e.contentChanges[0];
-  if (ch.rangeLength !== 0 || (ch.text !== '>' && ch.text !== '/')) return;
+  if (!isCloseTrigger(ch)) return;
   const ed = vscode.window.activeTextEditor;
   if (!ed || ed.document !== doc) return;
   const pf = profileOf(doc);
@@ -458,4 +467,4 @@ function deactivate() {
   clearTimeout(hlTimer);
 }
 
-module.exports = { activate, deactivate, otherCloser, snippetText };
+module.exports = { activate, deactivate, otherCloser, snippetText, isCloseTrigger };

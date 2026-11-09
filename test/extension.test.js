@@ -57,3 +57,18 @@ test('the "</" handler passes the whole text, so "</" typed before an existing n
   const off = t.indexOf('</div') + 2;
   assert.equal(T.closeAfterSlash(T.analyze(t, T.profileFor('php')), off, t), null);
 });
+
+test('">" typed over the ">" that VS Code paired with "<" (Markdown) still closes the tag; other replaces do not', () => {
+  const e = load([], {});
+  const range = (l1, l2) => ({ start: { line: l1 }, end: { line: l2 } });
+  assert.equal(e.isCloseTrigger({ rangeLength: 0, text: '>', range: range(3, 3) }), true);
+  assert.equal(e.isCloseTrigger({ rangeLength: 0, text: '/', range: range(3, 3) }), true);
+  assert.equal(e.isCloseTrigger({ rangeLength: 1, text: '>', range: range(3, 3) }), true);
+  assert.equal(e.isCloseTrigger({ rangeLength: 1, text: '/', range: range(3, 3) }), false);
+  assert.equal(e.isCloseTrigger({ rangeLength: 2, text: '>', range: range(3, 3) }), false);
+  assert.equal(e.isCloseTrigger({ rangeLength: 1, text: '>', range: range(3, 4) }), false);
+  assert.equal(e.isCloseTrigger({ rangeLength: 0, text: 'a', range: range(3, 3) }), false);
+  const T = require('../src/tags.js');
+  const md = 'Intro\n\n> Next Generation Frontend Tooling<em>\n';
+  assert.equal(T.closeAfterGt(T.analyze(md, T.profileFor('markdown')), md.indexOf('<em>') + 4), '</em>');
+});
