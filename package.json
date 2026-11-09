@@ -334,13 +334,13 @@
     "test": "node --test \"test/*.test.js\"",
     "package": "npx -y @vscode/vsce package --no-dependencies -o dist/"
   },
-  "homepage": "https://github.com/theluckystrike/auto-rename-tag-vscode#readme",
+  "homepage": "https://github.com/theluckystrike/tag-rename-close-sync-vscode#readme",
   "bugs": {
-    "url": "https://github.com/theluckystrike/auto-rename-tag-vscode/issues"
+    "url": "https://github.com/theluckystrike/tag-rename-close-sync-vscode/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/theluckystrike/auto-rename-tag-vscode"
+    "url": "https://github.com/theluckystrike/tag-rename-close-sync-vscode"
   },
   "devDependencies": {
     "@types/vscode": "~1.90.0"

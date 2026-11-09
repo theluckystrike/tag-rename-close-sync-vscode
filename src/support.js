@@ -220,7 +220,7 @@ const QUEUED = [
     "zovo.zovo-auto-rename-tag",
     "Tag Auto Rename & Close Tag Sync (Matching Tag Highlight, JSX, Vue)",
     "auto rename tag and auto close tag as you type in HTML, JSX/TSX, Vue, Svelte, PHP, Blade, Twig, XML and Markdown. One undo step for both tags, never pairs <br> or TypeScript generics, highlights the matching tag. Free, no sign-in, works offline.",
-    "https://github.com/theluckystrike/auto-rename-tag-vscode"
+    "https://github.com/theluckystrike/tag-rename-close-sync-vscode"
   ],
   [
     "zovo.zovo-code-screenshot",
