@@ -4,6 +4,13 @@ Rename a tag and its matching tag changes as you type. Type `>` and the closing 
 
 ![Renaming section to section-card in a Vue file: the closing tag changes with it and both tags have a box](images/readme-hero-dark.png)
 
+## Teams and companies
+
+- Zovo Pro Team is the company licence: USD 59 once for a team of 5, one key, the Pro tools in every Zovo extension that has them. [See Zovo Pro Team](https://license.zovo.one/buy/zovo-pro-team?client_reference_id=readme-tag)
+- Commercial use is allowed.
+- The key is checked on your computer, so it works offline. No account and no subscription.
+- Invoice with your company name and tax ID on request: support@zovo.one.
+
 ## Why this one
 
 The most installed tag rename, tag close and matching tag extensions have public reviews about the same few problems (links below; quotes are from those pages). This one is a different extension, built around them:
